@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三级联动</title>
+</head>
+<body>
+	<select name="" id="prov" onchange="ld()">
+		<option value="-1">请选择</option>
+		<option value="0">北京</option>
+		<option value="1">安徽</option>
+		<option value="2">河南</option>		
+		<option value="3">河北</option>
+
+	</select>
+	<select name="" id="city" onchange="">
+	</select>
+	<select name="" id="area" onchange="">
+	</select>
+	<script type="text/javascript">
+		var area = [
+		['朝阳','海淀','门头沟'],
+		['淮南','淮北','合肥'],
+		['郑州','开封','洛阳']
+		];
+		function ld(){
+			var sel = document.getElementById('prov');
+			var opt = '';
+			if(sel.value == '-1'){
+				document.getElementById('city').innerHTML = opt;
+				return;
+			}
+			var len = area[sel.value].length;
+			for(var i=0;i<len;i++){
+				opt = opt + '<option value ="'+i+'" >'+area[sel.value][i]+'</option>';
+			}
+			document.getElementById('city').innerHTML = opt;
+		}
+	</script>
+</body>
+</html>
